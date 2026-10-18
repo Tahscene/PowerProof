@@ -119,7 +119,7 @@ When energy or supply is cut mid shift, a manager has to decide fast which lines
 
 ---
 
-## Architecture
+## ⚡ Architecture
 
 ```
  Browser (Firebase Hosting, static)
