@@ -20,7 +20,7 @@ Category: *Manufacturing: Intelligent Operations & Industrial Efficiency*
 
 ---
 
-## Tech Stack
+## ⚡ Tech Stack
 
 <div align="center">
 <table>
@@ -43,13 +43,13 @@ Category: *Manufacturing: Intelligent Operations & Industrial Efficiency*
 
 ---
 
-## The problem
+## ⚡ The problem
 
 When energy or supply is cut mid shift, a manager has to decide fast which lines run in which hours, which orders slip and what it costs. Workers on the floor then have to be told. Spoken announcements do not reach deaf workers and speech-impaired workers cannot easily report a stopped machine. Most planning tools either give one rigid answer with no explanation or let a language model do arithmetic it is not reliable at.
 
 ---
 
-## What PowerProof does
+## ⚡ What PowerProof does
 
 | Step | What happens |
 |---|---|
@@ -62,7 +62,7 @@ When energy or supply is cut mid shift, a manager has to decide fast which lines
 | 🎨 **Floor screen (deaf workers)** | The approved schedule appears as a colour grid of hours per line, with the restricted window marked. No reading or hearing required. Workers tap *Understood*. |
 | 🖐️ **Report panel (speech impaired workers)** | Four large picture buttons (no material, machine down, quality problem and need help) plus a line selector. One tap reaches the manager in real time. |
 
-### The three plans
+### ⚡ The three plans
 
 | Plan | Goal |
 |---|---|
@@ -72,7 +72,7 @@ When energy or supply is cut mid shift, a manager has to decide fast which lines
 
 ---
 
-## Screenshots
+## ⚡ Screenshots
 
 <div align="center">
 
@@ -105,7 +105,7 @@ When energy or supply is cut mid shift, a manager has to decide fast which lines
 
 ---
 
-## Where Gemini is used, and where it is deliberately not
+## ⚡ Where Gemini is used, and where it is deliberately not
 
 | Job | Who does it |
 |---|---|
@@ -136,7 +136,7 @@ There is no server to run and no API key in this repository. Firebase AI Logic h
 `firebase-hosting/public/js/solver.js` is a JavaScript port of the CP-SAT model in `backend/solver.py`. The search is exact: each line chooses the hours it runs, the peak hour power cap couples the lines and a branch and bound search finds the optimum for each plan's objective. It cannot run OR-Tools in the browser, so the port is **tested against the real OR-Tools model**.
 ---
 
-## Data (simulated)
+## ⚡ Data (simulated)
 
 There is no public dataset that combines tariffs, machine capacity and order deadlines for a factory, so the demo uses a **simulated** factory. It is labelled as such in the interface.
 
@@ -152,7 +152,7 @@ All of these can be changed in the Crisis Intake form or in `solver.js`. The eng
 
 ---
 
-## Tests (what is actually verified)
+## ⚡ Tests (what is actually verified)
 
 ```bash
 cd firebase-hosting
@@ -170,7 +170,7 @@ npm run test:all
 
 ---
 
-## Security and data handling
+## ⚡ Security and data handling
 
 - No credentials in the repository. `firebase-config.js` holds public identifiers only.
 - Gemini is reachable only through Firebase AI Logic with App Check enforced.
@@ -178,7 +178,7 @@ npm run test:all
 
 ---
 
-## Team
+## ⚡ Team
 
 **Noor-E Arafin Rafi** (Team Leader), **Tahsin Shuborna**: Team **Ra.One**
 
