@@ -96,7 +96,7 @@ When energy or supply is cut mid shift, a manager has to decide fast which lines
     </td>
     <td align="center" width="50%">
       <b>Report panel for speech-impaired workers</b><br><br>
-      <img src="Screenshot_2026-10-18_185808.png" width="100%" alt="Picture button issue report panel"/>
+      <img src="report-issue.png" width="100%" alt="Picture button issue report panel"/>
     </td>
   </tr>
 </table>
