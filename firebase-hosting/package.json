@@ -1,0 +1,18 @@
+{
+  "name": "powerproof-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "PowerProof: crisis-day production planning with Gemini (Firebase AI Logic) and a deterministic scheduling engine.",
+  "scripts": {
+    "test": "node tests/solver.test.mjs && node tests/guards.test.mjs && node tests/i18n.test.mjs",
+    "serve": "python -m http.server 5000 --directory public",
+    "test:dom": "node tests/dom.smoke.mjs && node tests/dom.gemini.test.mjs",
+    "test:all": "npm test && npm run test:dom"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "jsdom": "^30.1.3"
+  }
+}

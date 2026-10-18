@@ -1,0 +1,26 @@
+rules_version = '2';
+
+// Demo-grade rules: anyone may read, writes are limited to the two collections the app uses
+// and are shape-checked. There is no authentication in this prototype (judges can open it
+// without signing in), so do not store anything sensitive here.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // The approved plan that floor screens display.
+    match /pp_state/current {
+      allow read: if true;
+      allow write: if request.resource.data.keys().size() <= 16
+                   && (request.resource.data.planId == null || request.resource.data.planId in ['A', 'B', 'C']);
+    }
+
+    // Worker reports and "Understood" confirmations. Append-only.
+    match /pp_events/{eventId} {
+      allow read: if true;
+      allow create: if request.resource.data.kind in ['report', 'ack']
+                    && request.resource.data.type is string && request.resource.data.type.size() <= 40
+                    && request.resource.data.line is string && request.resource.data.line.size() <= 20
+                    && request.resource.data.keys().size() <= 6;
+      allow update, delete: if false;
+    }
+  }
+}

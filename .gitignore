@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.env
+.gemini_cache/
+node_modules/
+.firebase/
+*.log

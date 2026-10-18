@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="PowerProof: when energy or supply breaks, get three costed production plans and tell every worker, including deaf and speech-impaired colleagues.">
+<title>PowerProof | Factory Crisis Copilot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
+<script type="module" src="js/app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main" data-i="skip">Skip to content</a>
+
+<div class="hdr-top">
+  <div class="hdr-top-l"><span id="topStatus"></span></div>
+  <div class="hdr-top-r">
+    <span class="chip" id="chipGem"></span><span class="chip" id="chipSync"></span>
+    <a href="mailto:noorearafin@gmail.com" data-i="top_contact">Contact</a>
+    <div class="lang-pick" id="langPick" role="group" aria-label="Language">
+      <button data-lang="en" class="on">EN</button><button data-lang="hi">HI</button><button data-lang="bn">BN</button>
+    </div>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="logo">
+    <svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15" fill="#c41e3a"/><path d="M19 6 9 19h7l-1 9 10-13h-7z" fill="#fff"/></svg>
+    <span>Power<b>Proof</b></span>
+  </div>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="#" class="on" data-t="mgr" data-i="nav_mgr">Manager</a>
+    <a href="#" data-t="line" data-i="nav_line">Line Display</a>
+    <a href="#" data-t="rpt" data-i="nav_rpt">Report Issue</a>
+  </nav>
+  <button class="siren" id="sirenBtn" data-i-title="siren_title" aria-label="Play crisis alert sound">&#128680;</button>
+</header>
+
+<main id="main">
+
+<!-- ================= MANAGER ================= -->
+<div id="v-mgr">
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <svg class="hero-power" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></g></svg>
+  <svg class="bolt b1" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>
+  <svg class="bolt b2" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>
+  <svg class="bolt b3" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>
+  <div class="hero-cnt">
+    <h1 data-i="hero_h">When power fails,<br>your factory <em>doesn&rsquo;t.</em></h1>
+    <p data-i="hero_p"></p>
+    <div class="hero-btns">
+      <button class="hero-cta" data-go="intake" data-i="hero_cta1"></button>
+      <button class="hero-cta ghost" data-go="plans-area" data-i="hero_cta2"></button>
+    </div>
+  </div>
+</section>
+
+<section class="nums-sec">
+  <h2 data-i="num_h">PowerProof <em>in Numbers</em></h2>
+  <div class="nums">
+    <div class="num-i"><div class="n" id="nv1">-</div><div class="l" data-i="num_1"></div></div>
+    <div class="num-i"><div class="n" id="nv2">-</div><div class="l" data-i="num_2"></div></div>
+    <div class="num-i"><div class="n" id="nv3">-</div><div class="l" data-i="num_3"></div></div>
+    <div class="num-i"><div class="n" id="nv4">-</div><div class="l" data-i="num_4"></div></div>
+    <div class="num-i"><div class="n" id="nv5">2</div><div class="l" data-i="num_5"></div></div>
+  </div>
+</section>
+
+<section class="how-sec">
+  <h2 data-i="hw_h">How It <em>Works</em></h2>
+  <div class="how-tabs" id="howTabs" role="tablist">
+    <button class="how-tab on" data-how="m" role="tab" data-i="hw_t1"></button>
+    <button class="how-tab" data-how="w" role="tab" data-i="hw_t2"></button>
+  </div>
+  <div class="how-ring"><div id="howRing"></div></div>
+</section>
+
+<section class="sec intake" id="intake">
+  <h2 data-i="in_h">Crisis <em>Intake</em></h2>
+  <p class="sub" data-i="in_sub"></p>
+  <div class="intake-grid">
+    <div class="card">
+      <label class="lbl" for="noticeText" data-i="in_notice"></label>
+      <textarea id="noticeText" rows="8"></textarea>
+      <div class="row-btns">
+        <button class="btn btn-out" id="btnSample" data-i="in_sample"></button>
+        <label class="btn btn-out file-btn"><span data-i="in_photo"></span><input type="file" id="noticePhoto" accept="image/*" hidden></label>
+        <span class="file-name" id="photoName"></span>
+        <button class="btn btn-red" id="btnRead" data-i="in_read"></button>
+      </div>
+      <div class="status" id="inStatus" role="status" aria-live="polite"></div>
+    </div>
+    <div class="card">
+      <div class="lbl" data-i="in_review_h"></div>
+      <div class="fields">
+        <label>
+          <span data-i="in_cap"></span><input type="number" id="fCap" min="60" max="400" step="10" value="180">
+        </label>
+        <label><span data-i="in_from"></span><select id="fFrom"></select></label>
+        <label><span data-i="in_to"></span><select id="fTo"></select></label>
+        <label><span data-i="in_order"></span><select id="fOrder"></select></label>
+        <label><span data-i="in_delay"></span><input type="number" id="fDelay" min="0" max="9" step="1" value="3"></label>
+      </div>
+      <div class="extract-info" id="inResult" hidden></div>
+      <button class="btn btn-red wide" id="btnApply" data-i="in_apply"></button>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="plans-area">
+  <h2 data-i="pl_h">Production <em>Plans</em></h2>
+  <p class="caption" id="planCaption" data-i="pl_caption"></p>
+  <div class="ok-b" id="approvedBar" role="status"></div>
+  <div class="bl"><div><div class="bt" data-i="pl_base"></div><div class="bn" id="baseCost">-</div></div><div class="bw" id="baseWarn"></div></div>
+  <div class="pg" id="pG"></div>
+  <div class="two-col">
+    <div>
+      <div class="sh-row"><h2 data-i="lg_h">Decision <em>Log</em></h2><button class="btn btn-out small" id="btnReset" data-i="lg_btn_reset"></button></div>
+      <div class="logbox" id="decLog"></div>
+    </div>
+    <div>
+      <h2 data-i="is_h">Worker <em>Issues</em></h2>
+      <div class="logbox" id="issLog"></div>
+    </div>
+  </div>
+</section>
+
+<section class="dash-sec" id="monitor">
+  <h2 data-i="mo_h">Factory <em>Monitoring</em></h2>
+  <p class="dash-sub" data-i="mo_sub"></p>
+  <div class="dash-main">
+    <div class="mon-tabs" id="monTabs" role="tablist">
+      <button class="mon-tab on" data-chart="power" data-i="mo_t1"></button>
+      <button class="mon-tab" data-chart="cost" data-i="mo_t2"></button>
+      <button class="mon-tab" data-chart="lines" data-i="mo_t3"></button>
+    </div>
+    <div class="dash-flex">
+      <div>
+        <div class="dash-chart-title" id="monTitle"></div>
+        <div class="dash-canvas-wrap"><canvas id="mainChart" role="img" aria-label="Chart"></canvas></div>
+      </div>
+      <div class="dash-stats">
+        <div class="dash-stat"><div class="ds-l" data-i="mo_s1"></div><div class="ds-n red" id="stCap">-</div></div>
+        <div class="dash-stat"><div class="ds-l" data-i="mo_s2"></div><div class="ds-n amber" id="stPeak">-</div></div>
+        <div class="dash-stat"><div class="ds-l" data-i="mo_s3"></div><div class="ds-n green" id="stBest">-</div></div>
+        <div class="dash-stat"><div class="ds-l" data-i="mo_s4"></div><div class="ds-n" id="stSolve">-</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="val-sec">
+  <h2 data-i="va_h">Why PowerProof <em>Matters</em></h2>
+  <div class="val-grid">
+    <div class="val-big"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg><h3 data-i="va_m_h"></h3><p data-i="va_m_p"></p></div>
+    <div class="val-card val-red"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4 8 11v11c0 10 7 18 16 22 9-4 16-12 16-22V11z"/><path d="m16 24 6 6 11-12" stroke="#c41e3a" stroke-width="4" fill="none"/></svg><h3 data-i="va_1_h"></h3><p data-i="va_1_p"></p></div>
+    <div class="val-card val-purple"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="16" cy="16" r="6"/><circle cx="32" cy="16" r="6"/><path d="M6 40c0-7 5-11 10-11s10 4 10 11zM22 40c0-7 5-11 10-11s10 4 10 11z"/></svg><h3 data-i="va_2_h"></h3><p data-i="va_2_p"></p></div>
+    <div class="val-card val-orange"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19"/><path d="M24 12v13l9 5" stroke="#f7941e" stroke-width="4" fill="none" stroke-linecap="round"/></svg><h3 data-i="va_3_h"></h3><p data-i="va_3_p"></p></div>
+    <div class="val-card val-pink"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6a8 8 0 1 1 0 16 8 8 0 0 1 0-16zM8 42c0-9 7-14 16-14s16 5 16 14z"/></svg><h3 data-i="va_4_h"></h3><p data-i="va_4_p"></p></div>
+  </div>
+</section>
+</div>
+
+<!-- ================= LINE DISPLAY ================= -->
+<div id="v-line" hidden>
+  <section class="sec">
+    <h2 data-i="ln_h">Line <em>Display</em></h2>
+    <div class="lstatus wait" id="lineStatus" role="status"></div>
+    <div id="lineBoard" hidden>
+      <div class="board" id="lineGrid"></div>
+      <div class="legend" id="lineLegend"></div>
+      <div class="icon-cards" id="iconCards"></div>
+      <button class="ub" id="btnAck" data-i="ln_ack"></button>
+      <div class="toast" id="ackToast" role="status" data-i="ln_ack_ok"></div>
+    </div>
+  </section>
+  <section class="dash-sec">
+    <h2 data-i="ln_mon_h">Line <em>Status</em></h2>
+    <div class="dash-main"><div class="dash-flex">
+      <div><div class="dash-chart-title" data-i="ln_chart_t"></div><div class="dash-canvas-wrap"><canvas id="lineChart" role="img" aria-label="Chart"></canvas></div></div>
+      <div class="dash-stats" id="lnStats"></div>
+    </div></div>
+  </section>
+</div>
+
+<!-- ================= REPORT ISSUE ================= -->
+<div id="v-rpt" hidden>
+  <section class="sec">
+    <h2 data-i="rp_h">Report an <em>Issue</em></h2>
+    <p class="sub center" data-i="rp_hint"></p>
+    <div class="line-pick"><label for="rpLine" data-i="rp_line"></label><select id="rpLine"></select></div>
+    <div class="rg" id="rpButtons"></div>
+    <div class="toast" id="rpToast" role="status"></div>
+    <div class="narrow"><h2 data-i="rp_rec_h">Recent <em>Reports</em></h2><div class="logbox" id="rpList"></div></div>
+  </section>
+  <section class="dash-sec">
+    <h2 data-i="rp_mon_h">Issue <em>Trends</em></h2>
+    <div class="dash-main"><div class="dash-flex">
+      <div><div class="dash-chart-title" data-i="rp_chart_t"></div><div class="dash-canvas-wrap"><canvas id="issueChart" role="img" aria-label="Chart"></canvas></div></div>
+      <div class="dash-stats" id="rpStats"></div>
+    </div></div>
+  </section>
+</div>
+
+</main>
+
+<div class="ftr-wave" aria-hidden="true"></div>
+<footer class="ftr">
+  <div class="ftr-col"><h4>PowerProof</h4><p>Factory crisis copilot<br>Google Cloud AI Builder Cup 2026<br>Category: Manufacturing</p></div>
+  <div class="ftr-col"><h4>Team</h4><a href="mailto:noorearafin@gmail.com">Noor-E Arafin Rafi (Leader)</a><a href="mailto:shujaanat06@gmail.com">Tahsin Shuborna</a><a>Ra.One</a></div>
+  <div class="ftr-col"><h4>Built with</h4><a>Gemini via Firebase AI Logic</a><a>Firebase Hosting</a><a>Cloud Firestore</a><a>Firebase App Check</a></div>
+  <div class="ftr-col"><h4>Data</h4><p>Factory data in this demo is simulated. Every cost and deadline shown is computed by the scheduling engine from that input.</p></div>
+</footer>
+<div class="ftr-bot"><span>PowerProof 2026</span></div>
+
+<!-- ask-why modal -->
+<div class="mo-bg" id="askModal" hidden>
+  <div class="mo" role="dialog" aria-modal="true" aria-labelledby="askTitle">
+    <h3 id="askTitle" data-i="as_h"></h3>
+    <input class="mo-i" id="askInput" data-i-ph="as_ph" autocomplete="off">
+    <div class="mo-b"><button class="btn btn-out" id="askCancel" data-i="as_cancel"></button><button class="btn btn-red" id="askGo" data-i="as_go"></button></div>
+    <div class="mo-a" id="askAnswer" hidden role="status"></div>
+  </div>
+</div>
+</body>
+</html>
