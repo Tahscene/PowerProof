@@ -131,9 +131,6 @@ When energy or supply is cut mid shift, a manager has to decide fast which lines
 
 There is no server to run and no API key in this repository. Firebase AI Logic holds the Gemini credentials. The browser proves it is the real app with **Firebase App Check** (reCAPTCHA Enterprise). Everything runs on the free Spark plan.
 
-### ⚡ The scheduling engine
-
-`firebase-hosting/public/js/solver.js` is a JavaScript port of the CP-SAT model in `backend/solver.py`. The search is exact: each line chooses the hours it runs, the peak hour power cap couples the lines and a branch and bound search finds the optimum for each plan's objective. It cannot run OR-Tools in the browser, so the port is **tested against the real OR-Tools model**.
 ---
 
 ## ⚡ Data (simulated)
