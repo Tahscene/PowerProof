@@ -166,6 +166,26 @@ npm run test:all
 | `dom.gemini.test.mjs` | The Gemini path (extract, confirm, re plan, explain and verify) with a fake model that deliberately invents a number, which is flagged. |
 
 ---
+### ⚡ Test Report
+
+<div align="center">
+<table>
+  <tr>
+    <td align="center" width="25%"><img src="Screenshot 2026-10-20 004325.png" width="100%" alt="Test Report Page 1"/></td>
+    <td align="center" width="25%"><img src="Screenshot 2026-10-20 004338.png" width="100%" alt="Test Report Page 2"/></td>
+    <td align="center" width="25%"><img src="Screenshot 2026-10-20 004350.png" width="100%" alt="Test Report Page 3"/></td>
+    <td align="center" width="25%"><img src="Screenshot 2026-10-20 004359.png" width="100%" alt="Test Report Page 4"/></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Summary</sub></td>
+    <td align="center"><sub>Solver and consistency</sub></td>
+    <td align="center"><sub>Guard and i18n</sub></td>
+    <td align="center"><sub>UI flow and Gemini path</sub></td>
+  </tr>
+</table>
+
+
+</div>
 
 ## ⚡ Security and data handling
 
