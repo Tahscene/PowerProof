@@ -183,7 +183,7 @@ npm run test:all
     <td align="center"><sub>UI flow and Gemini path</sub></td>
   </tr>
 </table>
-
+📄 [Full Test Report](https://drive.google.com/file/d/1MEmCpiNH4taocrUPW9uSegoe-h70t5Ek/view?usp=sharing)
 
 </div>
 
