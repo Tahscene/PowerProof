@@ -61,7 +61,9 @@ When energy or supply is cut mid shift, a manager has to decide fast which lines
 | 👤 **Manager approves** | One tap. The AI never decides. |
 | 🎨 **Floor screen (deaf workers)** | The approved schedule appears as a colour grid of hours per line, with the restricted window marked. No reading or hearing required. Workers tap *Understood*. |
 | 🖐️ **Report panel (speech impaired workers)** | Four large picture buttons (no material, machine down, quality problem and need help) plus a line selector. One tap reaches the manager in real time. |
-
+| 🚨 **Crisis severity** | The moment a scenario loads, a deterministic classifier (total line power against the cap) marks the crisis CRITICAL, HIGH, MEDIUM or LOW, with a live countdown to the restricted window. |
+| 🎚️ **What-if simulator** | Three sliders (power cap, material delay, peak tariff) recalculate all three plans in real time as they move. The solver runs in about 1 millisecond, so there is no lag. |
+| 📄 **PDF and audit export** | Once a plan is approved, the manager can download a branded PDF of the schedule or a timestamped audit trail of every approval, worker confirmation and reported issue. |
 ### ⚡ The three plans
 
 | Plan | Goal |
@@ -70,6 +72,16 @@ When energy or supply is cut mid shift, a manager has to decide fast which lines
 | ⏱️ **Plan B, Deadline Protector** | Every deadline met and lines finish as early as possible (higher cost). |
 | ⚖️ **Plan C, Balanced** | The cheapest plan that still meets every deadline (the recommendation). |
 
+---
+
+## ⚡ Built for every worker, in every mode
+
+| Feature | What it does |
+|---|---|
+| 👤 **My Shift** | A general worker picks their own line from a dropdown and sees only their hours, in plain colour blocks, with a one line explanation of what changed and why. |
+| 🌙 **Dark and light mode** | A single tap switches the whole interface, remembered on the next visit. |
+| ❓ **Built-in help** | A quick-start FAQ explains who each tab is for and what the colours mean, without leaving the app. |
+| 📱 **Responsive design** | The interface is rebuilt for phone and tablet screens, not just scaled down, since most factory floor workers will use this on a phone. |
 ---
 
 ## ⚡ Screenshots
@@ -164,7 +176,7 @@ npm run test:all
 | `i18n.test.mjs` | Every UI string exists in English, Hindi and Bangla with matching placeholders. |
 | `dom.smoke.mjs` | The full manager, floor screen, worker report, language and reset flow runs in a simulated browser. |
 | `dom.gemini.test.mjs` | The Gemini path (extract, confirm, re plan, explain and verify) with a fake model that deliberately invents a number, which is flagged. |
-
+| `stress.test.mjs` | 500 consecutive solves (average 1.10 ms), 1,000 random scenarios checking the cost ordering A ≤ C ≤ B, 50 tampered plans all caught, 200 fuzzed fake Gemini explanations all caught, and extraction edge cases (negative, absurd, missing and malformed values). |
 ---
 ### ⚡ Test Report
 
